@@ -1,0 +1,2 @@
+AddType application/x-windows-registry-item .reg
+AddType application/x-ms-jscript .js

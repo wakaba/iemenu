@@ -1,6 +1,7 @@
 2002-03-30  wakaba <w@suika.fam.cx>
 
 	* ChangeLog: New file.
+	* .htaccess: Likewise.
 	
 	* index.ja.html: New document.
 	* menuitems-add.reg, menuitems-remove.js,
