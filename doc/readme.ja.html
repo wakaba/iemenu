@@ -173,6 +173,18 @@ tool/iemenu)</p>
 <p>改良された際は是非お知らせ下さい。
 改善の提案などもお待ちしております。</p>
 
+<h2>参考</h2>
+
+<p>献立項目名が全部英語@ラテン文字なのは、
+source file 中に非 ASCII 文字があると (現状では)
+なんだかなあと思ったからです。必要に応じて修正して下さい。
+(たぶん Microsoft CP932 (シフト JIS) にしないと、
+レジストリの操作の時におかしくなると思われます。
+(もしかしたら UTF-16LE でも OK?))</p>
+<p>献立項目名以外の人が読む文字の部分も同様の理由で
+全部英語@ラテン文字です。 (さすがに gettext とか
+使えないし...)</p>
+
 <div class="navigation">
 [<a href="/" title="このサーバーの首頁">/</a>
 <a href="/map" title="このサーバーの案内" rel="index">地図</a>
@@ -184,7 +196,7 @@ tool/iemenu)</p>
        src="http://jigsaw.w3.org/css-validator/images/vcss" 
        alt="Valid CSS!" />
 </div>
-<div class="update">$Date: 2002/03/30 15:04:13 $</div>
+<div class="update">$Date: 2002/03/31 04:40:35 $</div>
 <ul class="myuri">
 <li>&lt;URL:<a href="http://suika.fam.cx/~wakaba/tool/iemenu/readme">http://suika.fam.cx/~wakaba/tool/iemenu/readme</a>&gt;</li>
 <li>&lt;CVS:<a href="http://suika.fam.cx/gate/cvs/tool/iemenu/doc/">suika.fam.cx:/home/cvs/tool/iemenu/doc/</a>&gt;</li>
