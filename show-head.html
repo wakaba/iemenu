@@ -1,0 +1,103 @@
+<!-- Show list of link elements and meta information 
+#name Show <head> information
+#context default
+-->
+<script language="JScript" defer="defer">
+var doc = external.menuArguments.document;
+var head = doc.getElementsByTagName('head').item(0);
+var itext = '';  var mtext = '';
+for (var i = 0; i < head.all.length; i++) {
+  var el = head.all(i);  var tn = el.tagName;
+  if (tn == 'LINK') {
+    var Ahref = el.href;  var htext = '';
+    Ahref = Ahref.replace(/&/g,'&amp;');
+    Ahref = Ahref.replace(/</g,'&lt;');
+    Ahref = Ahref.replace(/>/g,'&gt;');
+    if (el.title) htext = el.title + ' ';
+    if (el.hreflang) htext += '{language=' + el.hreflang + '} ';
+    if (el.media) htext += '{media=' + el.media + '} ';
+    if (el.type) htext += '{media-type=' + el.type + '} ';
+    if (el.charset) htext += '{charset=' + el.charset + '} ';
+    htext += '(' + el.href + ')';
+    var lrel = '';
+    if (el.rel) lrel += el.rel + ' ';
+    if (el.rev) lrel += '&lt;-' + el.rev;
+    itext += '<li class="x-f-link">';
+    itext += '<a href="' + Ahref + '" class="x-f-link-rel"'
+           + ' title="' + htext + '" target="_self">'
+           + lrel + '</a></li>';
+  } else if (tn == 'META') {
+    var mname = '';  var mlang = el.lang;
+    var mvalue = el.content;  var mtitle = el.title;
+    if (el.name) {mname = el.name + ' = '}
+    else if (el.httpEquiv) mname = el.httpEquiv + ': ';
+    mtext += '<li class="x-f-meta"'
+    if (mlang) {
+      mtext += ' lang="' + mlang + '"';
+      mname += ' {' + mlang + '}';
+    }
+    if (mtitle) mtext += ' title="' + replace_specials (mtitle) + '"';
+    mtext += '>' + replace_specials (mname);
+    mtext += replace_specials (mvalue) + '</li>';
+  } else if (tn == 'TITLE') {
+    var mlang = el.lang;
+    var mvalue = el.text;  var mtitle = el.title;
+    mtext += '<li class="x-f-title"';
+    if (mlang)
+      mtext += ' lang="' + mlang + '"';
+    if (mtitle) mtext += ' title="' + replace_specials (mtitle) + '"';
+    mtext += '>&lt;title&gt; = ';
+    mtext += replace_specials (mvalue) + '</li>';
+  } else if (tn == 'BASE') {
+    var mtitle = el.title;
+    mtext += '<li class="x-f-base"';
+    if (mtitle) mtext += ' title="' + replace_specials (mtitle) + '"';
+    mtext += '>&lt;base&gt; =';
+    if (el.href) {	/* base URI */
+      var mvalue = replace_specials (el.href);
+      mtext += ' &lt;<a href="' + mvalue + '" target="_self">';
+      mtext += mvalue + '</a>&gt;';
+    }
+    if (el.target) {
+      var mvalue = replace_specials (el.target);
+      mtext += ' {target=' + mvalue + '}';
+    }
+    mtext += '</li>';
+  }
+}
+// insert
+if (mtext) {
+  mtext = '<ins class="x-f-meta"><ul>' + mtext + '</ul></ins>';
+  doc.body.all(0).outerHTML = mtext + doc.body.all(0).outerHTML;
+}
+if (itext) {
+  itext = '<ins class="x-f-link"><ul>' + itext + '</ul></ins>';
+  doc.body.all(0).outerHTML = itext + doc.body.all(0).outerHTML;
+}
+function replace_specials (rt) {
+  rt = rt.replace(/&/g,'&amp;');
+  rt = rt.replace(/</g,'&lt;');
+  rt = rt.replace(/>/g,'&gt;');
+  return rt;
+}
+</script>
+<!--
+Copyright 2002 wakaba E<lt>w@suika.fam.cxE<gt>.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; see the file COPYING.  If not, write to
+the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+
+$Date: 2002/03/30 13:47:56 $
+-->

@@ -1,0 +1,92 @@
+<!-- Show list of anchors and forms 
+#name Show list of anchors
+#context default anchor control
+-->
+<script language="JScript" defer="defer">
+var doc = external.menuArguments.document;
+var myself = replace_specials (doc.location.href);
+var itext = '';
+for (var i = 0; i < doc.body.all.length; i++) {
+  var el = doc.body.all(i);
+  var tn = el.tagName;
+  if (tn == 'A') {	// map is not supported.
+    var hid = '';  if (el.id) hid = el.id
+    else {el.id = 'x-f-anchor-' + i; hid = el.id}
+    var Ahref = el.href;  var htext;
+    if (el.innerText) htext = el.innerText
+    else htext = '(anchor)';
+    if (el.title) {
+      if (htext) htext += ' ';  htext += '[' + el.title + ']';
+    }
+    if (el.rel) htext += ' {' + el.rel + '}';
+    if (el.rev) htext += ' {<-' + el.rev + '}';
+    if (el.hreflang) htext += ' {language=' + el.hreflang + '}';
+    if (el.type) htext += ' {media-type=' + el.type + '}';
+    if (el.charset) htext += ' {charset=' + el.charset + '}';
+    htext = replace_specials (htext);
+    itext += '<li class="x-f-anchor-' + tn + '">'
+           + '<a href="' + myself + '#' + hid
+           + '" class="x-f-a-title" target="_self">' + htext
+           + '</a>: ';
+    if (Ahref) {
+      Ahref = replace_specials (Ahref);
+      itext += '&lt;<a href="' + Ahref
+             + '" class="x-f-a-href" target="_self">' 
+             + Ahref + '</a>&gt;'
+    } else itext += '(none)';
+    itext += '</li>';
+  } else if (tn == 'FORM') {
+    var hid = '';
+    if (el.id) hid = el.id
+    else {
+      el.id = 'x-f-form-' + i;  hid = el.id;
+    }
+    var htext = '(form)';
+    if (el.title)
+      htext += ' [' + el.title + ']';
+    htext = replace_specials (htext);
+    if (el.action) {
+      var eact = replace_specials ("" + el.action);
+      itext += '<li class="x-f-anchor-FORM"><a href="' + myself
+             + '#' + hid
+             + '" class="x-f-form-title" target="_self">'
+             + htext + '</a>: &lt;<span class="x-f-form-action">' 
+             + eact + '</span>&gt;';
+    } else
+      itext += '<li class="x-f-anchor-FORM"><a href="'
+             + myself + '#' + hid + '" target="_self">'
+             + htext + '</a>: (none)';
+  }
+}
+// insert anchor list
+if (itext) {
+  itext = '<ins class="x-f-anchor"><ul>' + itext + '</ul></ins>';
+  doc.body.all(0).outerHTML = itext + doc.body.all(0).outerHTML;
+}
+function replace_specials (rt) {
+  rt = rt.replace(/&/g,'&amp;');
+  rt = rt.replace(/</g,'&lt;');
+  rt = rt.replace(/>/g,'&gt;');
+  return rt;
+}
+</script>
+<!--
+Copyright 2002 wakaba E<lt>w@suika.fam.cxE<gt>.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; see the file COPYING.  If not, write to
+the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.
+
+$Date: 2002/03/30 13:47:56 $
+-->
