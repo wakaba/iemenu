@@ -1,3 +1,7 @@
+2002-05-26  wakaba <w@suika.fam.cx>
+
+	* show-relative-uri.html: Fix typo and note it.
+
 2002-03-31  wakaba <w@suika.fam.cx>
 
 	* show-comment.html: Support visualiazation
