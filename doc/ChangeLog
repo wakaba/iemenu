@@ -1,0 +1,7 @@
+2002-03-30  wakaba <w@suika.fam.cx>
+
+	* ChangeLog: New file.
+	
+	* index.ja.html: New document.
+	* menuitems-add.reg, menuitems-remove.js,
+	user-style-example.css: New files.

@@ -1,0 +1,76 @@
+
+.x-f-header-comment, .x-f-comment, .x-f-heading, .x-f-anchor,
+.x-f-link, .x-f-meta, .x-f-citation-uri, .x-f-citation-uri a,
+.x-f-heading a, .x-f-anchor a, .x-f-link a,
+.x-f-description-uri, .x-f-description-uri a
+	{margin: 0 !important; padding: 0 !important;
+	border-style: none !important;
+	color: InfoText !important;
+	background: InfoBackground !important;
+	font-size: 16px !important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	text-decoration: none !important;
+	line-height: 110% !important}
+
+.x-f-header-comment, .x-f-comment, .x-f-heading, .x-f-anchor,
+.x-f-link, .x-f-meta, .x-f-citation-uri
+	{display: inline !important;
+	margin: 1px !important; padding: 1px !important;
+	border: 1px solid ActiveBorder !important;
+	line-height: 100% !important}
+.x-f-header-comments, .x-f-header-comments .x-f-comment
+	{display: block !important;
+	text-decoration: none !important}
+
+.x-f-heading, .x-f-anchor, .x-f-link, .x-f-meta, .x-f-title,
+.x-f-base
+	{display: block !important; margin: 0.2em !important;
+	padding: 0 !important;
+	line-height: 120% !important}
+.x-f-heading ul, .x-f-anchor ul, .x-f-meta ul
+	{display: block !important; margin: 0 !important;
+	border-style: none !important; padding: 0 !important}
+.x-f-heading-H1
+	{margin-left: 1em !important}
+.x-f-heading-H2
+	{margin-left: 2em !important}
+.x-f-heading-H3
+	{margin-left: 3em !important}
+.x-f-heading-H4
+	{margin-left: 4em !important}
+.x-f-heading-H5
+	{margin-left: 5em !important}
+.x-f-heading-H6
+	{margin-left: 6em !important}
+.x-f-anchor-A
+	{margin-left: 1em !important}
+.x-f-heading a:hover, .x-f-anchor a:hover, .x-f-link a:hover,
+.x-f-citation-uri a:hover, .x-f-description-uri a:hover
+	{color: InfoBackground !important;
+	background-color: InfoText !important;
+	cursor: hand !important}
+.x-f-anchor .x-f-a-href, .x-f-anchor .x-f-form-action
+	{font-size: smaller !important; color: blue !important}
+.x-f-link ul, .x-f-link li
+	{display: inline !important; margin: 0 !important;
+	border-style: none !important; padding: 0 !important}
+.x-f-link li
+	{margin-right: 1em !important}
+
+.x-f-anchor-samewindow, .x-f-description-uri
+	{font-size: xx-small !important}
+.x-f-citation-uri, .x-f-citation-uri a
+	{font-style: italic !important}
+
+.x-f-description-uri, .x-f-description-uri a
+	{text-decoration: none !important;
+	color: red !important}
+
+/*
+
+Author: wakaba E<lt>w@suika.fam.cxE<gt>.
+License: Public Domain.
+$Date: 2002/03/30 14:57:37 $
+
+*/

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Internet Explorer context 献立用項目</title>
+<?xml-stylesheet href="/s/simpledoc"?>
+<link rel="stylesheet" href="/s/simpledoc" />
+<link rev="made" href="mailto:w@suika.fam.cx" />
+<link rel="copyright" href="/c/pd" title="Public Domain." />
+<meta name="author" content="若葉" />
+</head>
+<body>
+<h1>Internet Explorer context 献立用項目</h1>
+
+<p>Windows の Internet Explorer の Web browser で鼠の右ボタン (というか
+第2ボタン) を押すなどすると出てくる献立項目になんか
+便利っぽいものを追加するっていう、ありがちな奴です。</p>
+
+<p>Windows Me + Internet Explorer 5.5 で書いてます。
+他の版でもきちんと動くかは不明です。 (M$ 製品だし...)</p>
+
+<h2>Show list of anchors</h2>
+
+<p>その HTML 文書にあるアンカー (リンク; A 要素) の一覧を、
+文書の先頭に吐き出します。その際、飛び先 URI や
+title 属性の内容も一緒に並べます。飛び先の言語などの情報
+があればそれも出します。</p>
+<p>また、文書中に入力欄 (フォーム; FORM 要素) があれば、
+その送信先も併せて一覧にします。</p>
+
+<h2>Show comments</h2>
+
+<p>HTML 文書中の注釈 (コメント; &lt;!-- 〜 --&Gt;) などを
+可視状態にします。</p>
+<p>Internet Explorer が注釈と判断した (らしい) ものは
+全て可視にします。ですから、文書型宣言 (&lt;!DOCTYPE 〜&gt;),
+XML 宣言や処理命令 (&lt;? 〜 ?&Gt;) なども含まれます。</p>
+<p>しかしそれらも場所によっては出てこなかったり、
+不正な注釈 (例: &lt;! 〜 &gt;) が見えなかったり、
+マーク区間 (&lt;![〜[ 〜 ]]&gt;) (そもそも IE5.5 は
+上手く解釈出来ないらしい。) も見えなかったりなどします。</p>
+
+<h2>Show &lt;head&gt; information</h2>
+
+<p>文書の先頭に、 head 要素内の主要な内容を吐き出します。</p>
+<p>現在の所対応しているのは、 link 要素, meta 要素,
+title 要素, base 要素です。 title 要素は普段から
+窓の題になっていますが、 clipboard に copy するのに
+便利でしょう。</p>
+
+<h2>Show list of headings</h2>
+
+<p>文書中の見出し (heading; H<var>n</var> 要素)
+の一覧を先頭に吐き出します。もちろん一覧はリンクに
+なっていて、そこから見出しへ飛べます。</p>
+
+<h2>Show relative URIs</h2>
+
+<p>文書中の要素に関連する URI をその要素の脇に書き足します。</p>
+<p>引用 (BLOCKQUOTE 要素, Q 要素) の引用元 URI が示されている
+(cite 属性) 時は、その URI を引用部のはじめに書き足します。
+もちろんリンクになっているので直接飛べます。</p>
+<p>追加・削除 (INS 要素・DEL 要素) の説明がある URI
+が示されている (cite 属性) 時は、そこへのリンクを追加・削除部の
+はじめに付け足します。また、追加・削除日時の情報が有る
+(datetime 属性) 場合は、追加・削除部分のツールチップ (鼠を上に置いて
+しばらく待つと出てくるヒント・メッセージ) に付け足します。</p>
+<p>画像 (IMG 要素) の説明文の URI が示されている (longdesc 属性)
+時に、そこへのリンクを画像の隣に付け足します。
+画像が地図 (イメージマップ) の時は、画像の脇に [MAP]
+と書き足します。 (あまり意味は無いです:-) そして、
+利用者側画像地図 (usemap 属性) の時は、「MAP」の部分を
+画像地図へのリンクにします。</p>
+<p>表 (TABLE 要素) の要約 (summary 属性) がある時は、
+それを表のツールチップに付け足します。</p>
+
+<h2>Enable URI tooltip</h2>
+
+<p>アンカー (リンク; A 要素) のリンク先 URI を
+ツールチップ (鼠を上に置いてしばらく待つと出てくるヒント・メッセージ)
+に付け足します。状況棒 (status bar) にも出ますが、
+あの欄では狭くて全部読めません:-(</p>
+<p>別窓で開くようになっている (target 属性) 時は、
+その旨もツールチップに書きます。ついでに、
+[same window] というリンクを脇に書き足します。
+これであのうざったい新窓開きを未然に防げるかもしれません:-)</p>
+
+<h2>Open description [in new window] (of image)</h2>
+
+<p>画像 (IMG 要素) の説明文が用意されている (longdesc 属性)
+時に、それを開きます。この項目は画像に対してのみ有効です。</p>
+<p>同じ窓で開くのと違う窓で開くのの2種類を用意しています。</p>
+<p>説明文がない時は何もしません。 (但し状況棒 (status bar)
+にありませんと書きます。) (説明文があるかどうかは
+やってみるまでわかりません。IE の仕様です;-)
+(または上記の Show relative URIs で URI を出せば
+分かります。ってそれじゃあ意味無いじゃん。))</p>
+
+<h2>install について</h2>
+
+<p>こういう系だと、 INF ファイルか REG ファイルが
+ついてきますけど、面倒なのでそのようなものはありません:-)</p>
+<p>しかし何もないと自分で使うのにも不便なので(笑)、
+REG ファイルを吐き出す Perl script (mkreg.pl) を書きました。</p>
+<p>また、更にそれを呼び出す mkreg.bat もあります。
+これを実行すると、 install 用 REG ファイルと、
+uninstall 用 JavaScript (WSH 用) ファイルを吐き出します。</p>
+<p>この Perl script は、同じディレクトリ (または指定した
+ディレクトリ) の HTML ファイルを見て、
+それが追加項目の場合は、 REG ファイルの項目を作ります。
+詳しくは script と各項目 HTML ファイルの先頭をみて下さい。</p>
+<p>この script を各 HTML と同じ場所に置いて、
+バッチファイルを実行すれば OK です。 (その場所をそのまま
+使います。 (慣習的には C:\Windows\Web にするらしいです。))</p>
+<p>不要な項目は、対応するファイルは削除してから
+バッチファイルを実行すれば、(当然) REG ファイルには現れません。</p>
+
+<p>で、出来た REG ファイルを (Windows 既定状態なら)
+double-click すると install 出来ます。</p>
+
+<h3>Perl が無い場合</h3>
+
+<p>たかがこれだけで Perl を install するのは面倒だと思いますので、
+(でも Perl あると便利ですよ。) 上記のようにして
+作ったファイルも置いときます。</p>
+<p>各 HTML を置くディレクトリは C:\Windows\Web になっています。
+他の場所が良いならメモ帳などで開いて修正して下さい。</p>
+
+<ul>
+<li><a href="menuitems-add.reg" type="application/x-windows-registry-item">menuitems-add.reg</a> (install 用)</li>
+<li><a href="menuitems-remove.js" type="application/x-ms-jscript">menuitems-remove.js</a> (uninstall 用)</li>
+</ul>
+
+<p>(必要なら) 修正した menuitems-add.reg を実行すると、
+install 出来ます。</p>
+
+<p>なお、追加した項目は新しく開いた Internet Explorer 
+の窓から有効になります。</p>
+
+<h3>利用者スタイルの追加</h3>
+
+<p>Perl を使った場合も使わなかった場合も、
+利用者スタイルを手動で追加する必要があります。</p>
+
+<p>Internet Explorer の「ツール」→「インターネット
+オプション」 (または「表示」→「オプション」)
+の「全般」→「ユーザー補助」→「ユーザー スタイル
+シート」で指定するファイルです。</p>
+
+<p>各項目の HTML ファイルを参考に、適宜利用者スタイル
+を追加して下さい。というのは非常に面倒だと思いますので:-)、
+<a href="user-style-example.css" type="text/css">利用者
+スタイルシートの例: user-style-example.css</a>
+を用意しました。</p>
+
+<h2>最新版の入手</h2>
+
+<p>最新版は CVS で入手出来ます。 (:ext:suika.fam.cx:/home/cvs
+tool/iemenu)</p>
+
+<p>または 
+<a href="/gate/cvs/tool/iemenu/" title="CVS repository via ViewCVS">Web 
+からも参照出来ます</a>。
+(<a href="/gate/cvs/tool/iemenu/iemenu.tar.gz?tarball=1">tarball
+を直接入手する</a>)</p>
+
+<h2>ライセンス</h2>
+
+<p>このソフトウェアは自由ソフトウェアです。 
+<a href="http://www.gnu.org/">GNU</a> GPL に従って
+利用出来ます。詳しくは各ファイルを御参照下さい。</p>
+<p>改良された際は是非お知らせ下さい。
+改善の提案などもお待ちしております。</p>
+
+<div class="navigation">
+[<a href="/" title="このサーバーの首頁">/</a>
+<a href="/map" title="このサーバーの案内" rel="index">地図</a>
+<a href="/search/" title="このサーバーの検索">検索</a>]
+<a href="http://validator.w3.org/check/referer" xml:lang="en"><img
+        src="http://www.w3.org/Icons/valid-xhtml11" id="w3c-html"
+        alt="Valid XHTML 1.1!" style="height: 31px; width: 88px" /></a>
+  <img style="width: 88px; height: 31px" id="w3c-css"
+       src="http://jigsaw.w3.org/css-validator/images/vcss" 
+       alt="Valid CSS!" />
+</div>
+<div class="update">$Date: 2002/03/30 14:57:37 $</div>
+<ul class="myuri">
+<li>&lt;URL:<a href="http://suika.fam.cx/okuchuu/">http://suika.fam.cx/~wakaba/tool/iemenu/</a>&gt;</li>
+<li>&lt;CVS:<a href="http://suika.fam.cx/gate/cvs/tool/iemenu/doc/">suika.fam.cx:/home/cvs/tool/iemenu/doc/</a>&gt;</li>
+</ul>
+</body></html>
