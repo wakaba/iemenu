@@ -2,7 +2,9 @@
 .x-f-header-comment, .x-f-comment, .x-f-heading, .x-f-anchor,
 .x-f-link, .x-f-meta, .x-f-citation-uri, .x-f-citation-uri a,
 .x-f-heading a, .x-f-anchor a, .x-f-link a,
-.x-f-description-uri, .x-f-description-uri a
+.x-f-description-uri, .x-f-description-uri a,
+.x-f-script, .x-f-style,
+.x-f-no-elements
 	{margin: 0 !important; padding: 0 !important;
 	border-style: none !important;
 	color: InfoText !important;
@@ -14,12 +16,15 @@
 	line-height: 110% !important}
 
 .x-f-header-comment, .x-f-comment, .x-f-heading, .x-f-anchor,
-.x-f-link, .x-f-meta, .x-f-citation-uri
+.x-f-link, .x-f-meta, .x-f-citation-uri,
+.x-f-style, .x-f-script,
+.x-f-no-elements
 	{display: inline !important;
 	margin: 1px !important; padding: 1px !important;
 	border: 1px solid ActiveBorder !important;
 	line-height: 100% !important}
-.x-f-header-comments, .x-f-header-comments .x-f-comment
+.x-f-header-comments, .x-f-header-comments .x-f-comment,
+.x-f-style, pre.x-f-script
 	{display: block !important;
 	text-decoration: none !important}
 
@@ -71,6 +76,6 @@
 
 Author: wakaba E<lt>w@suika.fam.cxE<gt>.
 License: Public Domain.
-$Date: 2002/03/30 14:57:37 $
+$Date: 2002/03/31 04:38:35 $
 
 */
