@@ -41,6 +41,13 @@ XML 宣言や処理命令 (&lt;? 〜 ?&Gt;) なども含まれます。</p>
 マーク区間 (&lt;![〜[ 〜 ]]&gt;) (そもそも IE5.5 は
 上手く解釈出来ないらしい。) も見えなかったりなどします。</p>
 
+<p>おまけ(?)で、 STYLE, SCRIPT, NOFRAMES, NOSCRIPT, NOEMBED,
+COMMENT 要素があれば、それも可視化します。 (ちなみに
+NOEMBED, COMMENT 両要素は W3C 仕様に基づく標準的な
+HTML の要素ではありません。) (なお、 NOFRAMES 要素は
+BODY 要素中のもの (IFRAME 要素の代替) です。
+FRAMESET 要素中のものには対応していません。)</p>
+
 <h2>Show &lt;head&gt; information</h2>
 
 <p>文書の先頭に、 head 要素内の主要な内容を吐き出します。</p>
@@ -159,6 +166,10 @@ install 出来ます。</p>
 <p>最新版は CVS で入手出来ます。 (:ext:suika.fam.cx:/home/cvs
 tool/iemenu)</p>
 
+<p>参考: experimental 枝では、上記に説明した以外の
+機能も幾つか含みますが、実用的でないとか
+完全には機能しないとかの理由で省かれています。</p>
+
 <p>または 
 <a href="/gate/cvs/tool/iemenu/" title="CVS repository via ViewCVS">Web 
 からも参照出来ます</a>。
@@ -196,7 +207,7 @@ source file 中に非 ASCII 文字があると (現状では)
        src="http://jigsaw.w3.org/css-validator/images/vcss" 
        alt="Valid CSS!" />
 </div>
-<div class="update">$Date: 2002/03/31 04:40:35 $</div>
+<div class="update">$Date: 2002/03/31 05:01:24 $</div>
 <ul class="myuri">
 <li>&lt;URL:<a href="http://suika.fam.cx/~wakaba/tool/iemenu/readme">http://suika.fam.cx/~wakaba/tool/iemenu/readme</a>&gt;</li>
 <li>&lt;CVS:<a href="http://suika.fam.cx/gate/cvs/tool/iemenu/doc/">suika.fam.cx:/home/cvs/tool/iemenu/doc/</a>&gt;</li>

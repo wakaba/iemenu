@@ -3,6 +3,8 @@
 	* show-comment.html: Support visualiazation
 	of STYLE, SCRIPT, NOSCRIPT, NOEMBED, NOFRAMES,
 	COMMENT elements.
+	
+	* Makefile: New file.
 
 2002-03-30  wakaba <w@suika.fam.cx>
 
