@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="iso-2022-jp"?>
+<?xml-stylesheet href="/s/simpledoc"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Internet Explorer context 献立用項目</title>
-<?xml-stylesheet href="/s/simpledoc"?>
 <link rel="stylesheet" href="/s/simpledoc" />
 <link rev="made" href="mailto:w@suika.fam.cx" />
 <link rel="copyright" href="/c/pd" title="Public Domain." />
@@ -31,11 +31,11 @@ title 属性の内容も一緒に並べます。飛び先の言語などの情報
 
 <h2>Show comments</h2>
 
-<p>HTML 文書中の注釈 (コメント; &lt;!-- 〜 --&Gt;) などを
+<p>HTML 文書中の注釈 (コメント; &lt;!-- 〜 --&gt;) などを
 可視状態にします。</p>
 <p>Internet Explorer が注釈と判断した (らしい) ものは
 全て可視にします。ですから、文書型宣言 (&lt;!DOCTYPE 〜&gt;),
-XML 宣言や処理命令 (&lt;? 〜 ?&Gt;) なども含まれます。</p>
+XML 宣言や処理命令 (&lt;? 〜 ?&gt;) なども含まれます。</p>
 <p>しかしそれらも場所によっては出てこなかったり、
 不正な注釈 (例: &lt;! 〜 &gt;) が見えなかったり、
 マーク区間 (&lt;![〜[ 〜 ]]&gt;) (そもそも IE5.5 は
@@ -164,16 +164,16 @@ install 出来ます。</p>
 <h2>最新版の入手</h2>
 
 <p>最新版は CVS で入手出来ます。 (:ext:suika.fam.cx:/home/cvs
-tool/iemenu)</p>
+<code>www/ie/iemenu</code>)</p>
 
 <p>参考: experimental 枝では、上記に説明した以外の
 機能も幾つか含みますが、実用的でないとか
 完全には機能しないとかの理由で省かれています。</p>
 
 <p>または 
-<a href="/gate/cvs/tool/iemenu/" title="CVS repository via ViewCVS">Web 
+<a href="/gate/cvs/www/ie/iemenu/" title="CVS repository via ViewCVS">Web 
 からも参照出来ます</a>。
-(<a href="/gate/cvs/tool/iemenu/iemenu.tar.gz?tarball=1">tarball
+(<a href="/gate/cvs/www/ie/iemenu/iemenu.tar.gz?tarball=1">tarball
 を直接入手する</a>)</p>
 
 <h2>ライセンス</h2>
@@ -196,6 +196,24 @@ source file 中に非 ASCII 文字があると (現状では)
 全部英語@ラテン文字です。 (さすがに gettext とか
 使えないし...)</p>
 
+<h2>維持について (2003-08-17)</h2>
+
+<p>このソフトウェアは、
+<a href="/~wakaba/">わかば</a>はもう維持していません。
+そもそも Internet Explorer 自体使ってもいません。</p>
+<p>このソフトウェアが実装していた機能の幾つかは、
+<a href="http://www.mozilla.org/">Mozilla</a>
+や <a href="http://www.opera.com/">Opera</a>
+のような普通のブラウザは実装していますし、
+そうでない機能も追加のソフトウェアで提供されています。</p>
+
+<p>はっきりいって IE 
+のような時代遅れで低機能なブラウザをこのソフトウェアで補いながら使うのは非効率的だと思うのですが、
+それでも IE に愛着のある方がいらっしゃって、
+しかも開発を続けて下さるのなら、
+それはそれで結構なことです。</p>
+<p><a href="/admin/cvs/">CVS サーバーのアカウントが必要ならご連絡下さい</a>。</p>
+
 <div class="navigation">
 [<a href="/" title="このサーバーの首頁">/</a>
 <a href="/map" title="このサーバーの案内" rel="index">地図</a>
@@ -207,7 +225,7 @@ source file 中に非 ASCII 文字があると (現状では)
        src="http://jigsaw.w3.org/css-validator/images/vcss" 
        alt="Valid CSS!" />
 </div>
-<div class="update">$Date: 2002/03/31 05:01:24 $</div>
+<div class="update">$Date: 2003/08/17 03:11:46 $</div>
 <ul class="myuri">
 <li>&lt;URL:<a href="http://suika.fam.cx/~wakaba/tool/iemenu/readme">http://suika.fam.cx/~wakaba/tool/iemenu/readme</a>&gt;</li>
 <li>&lt;CVS:<a href="http://suika.fam.cx/gate/cvs/tool/iemenu/doc/">suika.fam.cx:/home/cvs/tool/iemenu/doc/</a>&gt;</li>
