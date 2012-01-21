@@ -1,0 +1,7 @@
+Options -ExecCGI
+
+AddType text/plain .html
+AddType text/perl .pl
+AddType text/x-dos-batch .bat
+
+## License: Public Domain.

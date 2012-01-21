@@ -1,2 +1,8 @@
 AddType application/x-windows-registry-item .reg
-AddType application/x-ms-jscript .js
+AddType text/javascript .js
+AddType text/css .css
+AddType text/html .html
+AddCharset iso-2022-jp .html
+AddLanguage ja .ja
+
+## License: Public Domain.
